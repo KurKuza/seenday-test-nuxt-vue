@@ -1,9 +1,3 @@
-<template>
-  <tippy :content="props.content" :theme="props.theme" :trigger="props.trigger">
-    <slot />
-  </tippy>
-</template>
-
 <script setup lang="ts">
 import "tippy.js/dist/tippy.css";
 import { Tippy } from "vue-tippy";
@@ -30,6 +24,12 @@ content: {
   }
 });
 </script>
+
+<template>
+  <tippy :content="props.content" :theme="props.theme" :trigger="props.trigger">
+    <slot />
+  </tippy>
+</template>
 
 <style lang="scss">
 @import "~/assets/styles/components/tippy-tooltip/tippy-tooltip.scss";

@@ -1,3 +1,9 @@
+<script setup>
+import HeaderTopbarId from "./user-id.vue";
+import HeaderTopbarBalance from "./balance.vue";
+import HeaderTopbarLogin from "./login.vue";
+</script>
+
 <template>
   <div class="topbar topbar--justify-end">
     <div class="topbar__id">
@@ -13,12 +19,6 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import HeaderTopbarId from "./user-id.vue";
-import HeaderTopbarBalance from "./balance.vue";
-import HeaderTopbarLogin from "./login.vue";
-</script>
 
 <style lang="scss">
 @import "assets/styles/components/topbar/topbar";

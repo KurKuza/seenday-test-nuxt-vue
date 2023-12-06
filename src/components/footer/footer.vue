@@ -1,3 +1,7 @@
+<script setup>
+const year = new Date().getFullYear();
+</script>
+
 <template>
   <footer class="footer">
     <div class="footer__inner">
@@ -15,10 +19,6 @@
     </div>
   </footer>
 </template>
-
-<script setup>
-const year = new Date().getFullYear();
-</script>
 
 <style lang="scss">
 @import "assets/styles/components/footer/footer";

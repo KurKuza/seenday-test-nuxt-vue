@@ -1,3 +1,22 @@
+<script lang="ts" setup>
+import { onClickOutside } from "@vueuse/core";
+
+import { useToastStore } from "./store-toast";
+
+const toastContainer = ref();
+
+const toastsStore = useToastStore();
+
+onClickOutside(toastContainer, () => toastsStore.clearToasts());
+
+const toastIconMap = {
+  error: "icon-exclamation-circle",
+  success: "icon-check-circle",
+  loading: "icon-hourglass-start",
+  info: ""
+};
+</script>
+
 <template>
   <div v-if="toastsStore.toasts.length > 0" ref="toastContainer" class="notifications-center">
     <div class="notifications-center__head">
@@ -20,25 +39,6 @@
     </ul>
   </div>
 </template>
-
-<script lang="ts" setup>
-import { onClickOutside } from "@vueuse/core";
-
-import { useToastStore } from "./store-toast";
-
-const toastContainer = ref();
-
-const toastsStore = useToastStore();
-
-onClickOutside(toastContainer, () => toastsStore.clearToasts());
-
-const toastIconMap = {
-  error: "icon-exclamation-circle",
-  success: "icon-check-circle",
-  loading: "icon-hourglass-start",
-  info: ""
-};
-</script>
 
 <style lang="scss" scoped>
 @import "~/assets/styles/components/_notification-center.scss";

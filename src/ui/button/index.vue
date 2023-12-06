@@ -1,13 +1,3 @@
-<template>
-  <nuxt-link v-if="to" :class="rootClass" :to="to" :target="target" :data-color="color">
-    <slot />
-  </nuxt-link>
-
-  <component :is="tagName" v-else-if="tagName" :class="rootClass" :data-color="color">
-    <slot />
-  </component>
-</template>
-
 <script setup>
 const props = defineProps({
   tagName: {
@@ -100,6 +90,16 @@ const rootClass = computed(() => {
   return [modeButton, { multicolor: props.isMulticolor }, `button_size_${props.size}`, `button_width_${props.width}`];
 });
 </script>
+
+<template>
+  <nuxt-link v-if="to" :class="rootClass" :to="to" :target="target" :data-color="color">
+    <slot />
+  </nuxt-link>
+
+  <component :is="tagName" v-else-if="tagName" :class="rootClass" :data-color="color">
+    <slot />
+  </component>
+</template>
 
 <style lang="scss">
 @import "@/assets/styles/components/button/button";

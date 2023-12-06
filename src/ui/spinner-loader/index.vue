@@ -1,9 +1,3 @@
-<template>
-  <div class="ui-spinner-loader" :class="[size === 'default' ? '' : size, position]">
-    <span />
-  </div>
-</template>
-
 <script>
 export default {
   props: {
@@ -22,6 +16,12 @@ export default {
   }
 };
 </script>
+
+<template>
+  <div class="ui-spinner-loader" :class="[size === 'default' ? '' : size, position]">
+    <span />
+  </div>
+</template>
 
 <style lang="scss">
 @import "~/assets/styles/components/spinner-loader.scss";

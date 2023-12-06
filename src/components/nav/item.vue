@@ -1,3 +1,18 @@
+<script setup>
+const props = defineProps({
+  item: {
+    type: Object,
+    required: true
+  },
+  isGap: {
+    type: Boolean,
+    default: true
+  }
+});
+
+const isSubMenu = computed(() => props.item?.subMenu?.length);
+</script>
+
 <template>
   <li class="nav__item" :class="{ nav__item_pd: isGap }">
     <a class="nav__item-link" v-bind="item.link.attrs" :class="{ 'nav__item-link_sub-menu': isSubMenu }">
@@ -34,18 +49,3 @@
     </div>
   </li>
 </template>
-
-<script setup>
-const props = defineProps({
-  item: {
-    type: Object,
-    required: true
-  },
-  isGap: {
-    type: Boolean,
-    default: true
-  }
-});
-
-const isSubMenu = computed(() => props.item?.subMenu?.length);
-</script>

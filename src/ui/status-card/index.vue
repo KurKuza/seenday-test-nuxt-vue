@@ -1,9 +1,3 @@
-<template>
-  <div class="block status-card" :data-status="props.status">
-    <slot />
-  </div>
-</template>
-
 <script setup lang="ts">
 const props = defineProps({
   status: {
@@ -16,6 +10,12 @@ const props = defineProps({
   }
 });
 </script>
+
+<template>
+  <div class="block status-card" :data-status="props.status">
+    <slot />
+  </div>
+</template>
 
 <style>
 @import "~/assets/styles/components/status-card.scss";

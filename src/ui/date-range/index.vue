@@ -1,15 +1,3 @@
-<template>
-  <VueDatePicker
-    v-model="dateRange"
-    locale="ru"
-    :format="format"
-    range
-    placeholder="Выберите диапазон дат"
-    select-text="Выбрать"
-    cancel-text="Закрыть"
-  />
-</template>
-
 <script setup>
 import VueDatePicker from "@vuepic/vue-datepicker";
 import "@vuepic/vue-datepicker/dist/main.css";
@@ -92,3 +80,15 @@ const handleDate = date => {
   emit("change", formatRange);
 };
 </script>
+
+<template>
+  <VueDatePicker
+    v-model="dateRange"
+    locale="ru"
+    :format="format"
+    range
+    placeholder="Выберите диапазон дат"
+    select-text="Выбрать"
+    cancel-text="Закрыть"
+  />
+</template>

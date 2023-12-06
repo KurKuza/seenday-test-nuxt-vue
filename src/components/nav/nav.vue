@@ -1,11 +1,3 @@
-<template>
-  <nav class="nav" data-accordion-menu="1">
-    <ul class="nav__lists">
-      <NavItem v-for="item of list" :key="item.id" :item="item" />
-    </ul>
-  </nav>
-</template>
-
 <script setup>
 import NavItem from "~/components/nav/item";
 
@@ -268,6 +260,14 @@ const list = ref([
   }
 ]);
 </script>
+
+<template>
+  <nav class="nav" data-accordion-menu="1">
+    <ul class="nav__lists">
+      <NavItem v-for="item of list" :key="item.id" :item="item" />
+    </ul>
+  </nav>
+</template>
 
 <style lang="scss">
 @import "assets/styles/components/nav/nav";
