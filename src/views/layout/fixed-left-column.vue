@@ -3,7 +3,7 @@
     <div>
       <slot name="fixed" />
     </div>
-    <div>
+    <div class="main__content">
       <slot />
     </div>
   </main>
@@ -11,4 +11,11 @@
 
 <style lang="scss">
 @import "~/assets/styles/components/main/main.scss";
+
+.main {
+  display: flex;
+}
+.main__content {
+  flex: 1;
+}
 </style>
