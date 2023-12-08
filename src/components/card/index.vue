@@ -12,19 +12,23 @@ const props = defineProps({
     required: true
   }
 });
+
+const getStatus = (): string => {
+  return props.order.c_date_pay ? "green" : "";
+};
 </script>
 
 <template>
-  <StatusCard :status="props.order.c_date_pay && 'green'" class="order-card">
+  <StatusCard :status="getStatus()" class="order-card">
     <div class="order-blocks">
       <div class="order-content">
         <OrderHeader :order="props.order" />
         <OrderDescription :order="props.order" />
       </div>
       <div class="order-buttons">
-        <Button color="purple">Просмотр</Button>
-        <Button color="green">Оплачен</Button>
-        <Button color="red">Закртыть</Button>
+        <Button size="small" color="purple">Просмотр</Button>
+        <Button size="small" color="green">Оплачен</Button>
+        <Button size="small" color="red">Закртыть</Button>
       </div>
     </div>
   </StatusCard>

@@ -37,7 +37,7 @@ export type OrderType = {
   ps_status: string;
   c_date: string;
   date: string;
-  c_date_pay: any;
+  c_date_pay: number;
   date_pay: any;
   receiving_date?: string;
 };
