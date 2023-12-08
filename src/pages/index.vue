@@ -1,19 +1,20 @@
 <script setup lang="ts">
-import type { OrderType } from "~/components/card/types";
+import DeleteConfirm from "~/components/shared/delete-confirm.vue";
+
+import { useDeleteConfirm } from "~/components/card/store-card";
 import Panel from "~/components/panel/index.vue";
 
 import FixedLeftColumn from "~/views/layout/fixed-left-column.vue";
 import OrderCards from "~/widgets/order-cards/index.vue";
 
-import { useAPIFetch } from "../composables/useAPIFetch";
+import { useOrderCards } from "../widgets/order-cards/store-order-cards";
+import { getAllOrderCards } from "../composables/orderCards/getAll";
 
-const allItems = ref<OrderType[]>([]);
+const storeDeleteConfirm = useDeleteConfirm();
+const storeCards = useOrderCards();
 
 const getAll = async () => {
-  await nextTick();
-  const request = await useAPIFetch("https://api.dev-cabinet.seenday.com/method/orders.getTest");
-  const parsed = JSON.parse(request?.data?.value as any);
-  allItems.value = parsed?.response?.data.orders || [];
+  storeCards.setCards(await getAllOrderCards(), useRoute().query?.card_id as string);
 };
 
 onMounted(getAll);
@@ -25,7 +26,13 @@ onMounted(getAll);
       <Panel />
     </template>
     <template #default>
-      <OrderCards :orders="allItems" />
+      <OrderCards />
+      <DeleteConfirm
+        v-if="storeDeleteConfirm.isDelete"
+        :delete="console.log('hi')"
+        :close="() => deleteConfirm()"
+        title="he"
+      />
     </template>
   </FixedLeftColumn>
 </template>

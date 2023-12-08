@@ -1,14 +1,25 @@
 <script setup lang="ts">
 import { DateRange } from "~/ui/date-range";
 
+import Search from "~/components/search.vue";
+
+import { useOrderCards } from "../../widgets/order-cards/store-order-cards";
+
+const storeCards = useOrderCards();
 const isLg = useBreakpointMatcher("lg");
 console.log("🚀  isLessThenLg:", isLg.value);
+
+const getQuery = async (query: string) => {
+  console.log("🚀  query:", query);
+  await storeCards.searchByIdCard(query);
+};
 </script>
 
 <template>
   <div class="panel">
-    <div :class="isLg ? 'panel__content' : ''">
+    <div class="panel__content" :class="isLg ? 'panel__pc' : ''">
       <DateRange />
+      <Search placeholder="Поиск заказа" @update:search-query="getQuery" />
     </div>
   </div>
 </template>
@@ -18,10 +29,20 @@ console.log("🚀  isLessThenLg:", isLg.value);
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 250px;
+  width: 270px;
   height: 100%;
 }
 .panel__content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 16px;
+
+  background-color: #fff;
+  border-radius: 4px;
+}
+.panel__pc {
   position: fixed;
+  width: 270px;
 }
 </style>

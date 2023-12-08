@@ -24,6 +24,7 @@ const isLg = useBreakpointMatcher("lg");
 .main__table {
   display: flex;
   flex-direction: column;
+  gap: 15px;
 }
 .main__content {
   flex: 1;

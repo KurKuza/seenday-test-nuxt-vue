@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { StatusCard } from "~/ui/status-card";
 import { Button } from "~/ui/button";
+import { StatusCard } from "~/ui/status-card";
 
 import OrderDescription from "./order-description.vue";
 import OrderHeader from "./order-header.vue";
 import type { OrderType } from "./types";
+import { useDeleteConfirm } from "./store-card";
 
 const props = defineProps({
   order: {
@@ -12,6 +13,8 @@ const props = defineProps({
     required: true
   }
 });
+
+const { deleteConfirm } = useDeleteConfirm();
 
 const getStatus = (): string => {
   return props.order.c_date_pay ? "green" : "";
@@ -28,7 +31,7 @@ const getStatus = (): string => {
       <div class="order-buttons">
         <Button size="small" color="purple">Просмотр</Button>
         <Button size="small" color="green">Оплачен</Button>
-        <Button size="small" color="red">Закртыть</Button>
+        <Button size="small" color="red" @click="deleteConfirm">Закртыть</Button>
       </div>
     </div>
   </StatusCard>

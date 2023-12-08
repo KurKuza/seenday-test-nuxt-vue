@@ -1,18 +1,13 @@
 <script setup lang="ts">
-import type { OrderType } from "~/components/card/types";
+import { useOrderCards } from "./store-order-cards";
 
 import OrderCard from "../../components/card/index.vue";
 
-const props = defineProps({
-  orders: {
-    type: Object as PropType<OrderType[]>,
-    required: true
-  }
-});
+const storeCards = useOrderCards();
 </script>
 
 <template>
-  <div v-for="order of props.orders" :key="order.uid">
+  <div v-for="order of storeCards.orderCards" :key="order.uid">
     <OrderCard :order="order" />
   </div>
 </template>
