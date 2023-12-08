@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { DateRange } from "~/ui/date-range";
+
+const isLg = useBreakpointMatcher("lg");
+console.log("🚀  isLessThenLg:", isLg.value);
 </script>
 
 <template>
   <div class="panel">
-    <div class="panel__content">
+    <div :class="isLg ? 'panel__content' : ''">
       <DateRange />
     </div>
   </div>

@@ -1,5 +1,11 @@
+<script setup>
+import { useBreakpointMatcher } from "../../composables/useBreakpointMatcher";
+
+const isLg = useBreakpointMatcher("lg");
+</script>
+
 <template>
-  <main class="main" data-fixed="fixed">
+  <main :class="isLg ? 'main' : 'main__table'" data-fixed="fixed">
     <div>
       <slot name="fixed" />
     </div>
@@ -14,6 +20,10 @@
 
 .main {
   display: flex;
+}
+.main__table {
+  display: flex;
+  flex-direction: column;
 }
 .main__content {
   flex: 1;
