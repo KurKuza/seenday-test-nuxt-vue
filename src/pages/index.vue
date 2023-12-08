@@ -1,3 +1,20 @@
+<template>
+  <FixedLeftColumn>
+    <template #fixed>
+      <Panel />
+    </template>
+    <template #default>
+      <OrderCards />
+      <DeleteConfirm
+        v-if="storeDeleteConfirm.isDelete"
+        title="Delete"
+        @delete="() => storeDeleteConfirm.deleteConfirm()"
+        @close="() => storeDeleteConfirm.deleteConfirm()"
+      />
+    </template>
+  </FixedLeftColumn>
+</template>
+
 <script setup lang="ts">
 import DeleteConfirm from "~/components/shared/delete-confirm.vue";
 
@@ -19,20 +36,3 @@ const getAll = async () => {
 
 onMounted(getAll);
 </script>
-
-<template>
-  <FixedLeftColumn>
-    <template #fixed>
-      <Panel />
-    </template>
-    <template #default>
-      <OrderCards />
-      <DeleteConfirm
-        v-if="storeDeleteConfirm.isDelete"
-        title="Delete"
-        @delete="() => storeDeleteConfirm.deleteConfirm()"
-        @close="() => storeDeleteConfirm.deleteConfirm()"
-      />
-    </template>
-  </FixedLeftColumn>
-</template>

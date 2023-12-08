@@ -1,42 +1,3 @@
-<script lang="ts" setup>
-import {
-  SelectContent,
-  SelectIcon,
-  SelectItem,
-  SelectItemIndicator,
-  SelectPortal,
-  SelectRoot,
-  SelectTrigger,
-  SelectViewport
-} from "radix-vue";
-
-import type { SelectItems } from "./types";
-
-type Props = {
-  // eslint-disable-next-line vue/require-default-prop
-  description?: string;
-  items: SelectItems;
-  modelValue: string;
-  side?: "top" | "bottom";
-  name: string | undefined;
-  required?: boolean;
-  theme?: "default" | "solid";
-  readonly?: boolean;
-};
-
-const emit = defineEmits(["update:modelValue"]);
-
-const props = withDefaults(defineProps<Props>(), { side: "bottom", theme: "default" });
-
-const modelValue = useVModel(props, "modelValue", emit);
-
-const currentItem = computed(() => {
-  return props.items.find(item => {
-    return item.value === modelValue.value;
-  });
-});
-</script>
-
 <template>
   <SelectRoot v-model="modelValue" :name="props.name" :required="props.required" :disabled="props.readonly">
     <SelectTrigger
@@ -75,6 +36,45 @@ const currentItem = computed(() => {
     </SelectPortal>
   </SelectRoot>
 </template>
+
+<script lang="ts" setup>
+import {
+  SelectContent,
+  SelectIcon,
+  SelectItem,
+  SelectItemIndicator,
+  SelectPortal,
+  SelectRoot,
+  SelectTrigger,
+  SelectViewport
+} from "radix-vue";
+
+import type { SelectItems } from "./types";
+
+type Props = {
+  // eslint-disable-next-line vue/require-default-prop
+  description?: string;
+  items: SelectItems;
+  modelValue: string;
+  side?: "top" | "bottom";
+  name: string | undefined;
+  required?: boolean;
+  theme?: "default" | "solid";
+  readonly?: boolean;
+};
+
+const emit = defineEmits(["update:modelValue"]);
+
+const props = withDefaults(defineProps<Props>(), { side: "bottom", theme: "default" });
+
+const modelValue = useVModel(props, "modelValue", emit);
+
+const currentItem = computed(() => {
+  return props.items.find(item => {
+    return item.value === modelValue.value;
+  });
+});
+</script>
 
 <style lang="scss">
 @import "~/assets/styles/components/select.scss";

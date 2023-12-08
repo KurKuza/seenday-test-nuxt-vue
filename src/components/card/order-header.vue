@@ -1,18 +1,3 @@
-<script setup lang="ts">
-import type { OrderType } from "./types";
-
-const props = defineProps({
-  order: {
-    type: Object as PropType<OrderType>,
-    required: true
-  }
-});
-
-const isPayed = computed(() => {
-  return props.order.c_date_pay ? props.order.c_date_pay : "Не оплачен";
-});
-</script>
-
 <template>
   <div class="order-header padding">
     <div class="order-header__info">
@@ -44,6 +29,21 @@ const isPayed = computed(() => {
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import type { OrderType } from "./types";
+
+const props = defineProps({
+  order: {
+    type: Object as PropType<OrderType>,
+    required: true
+  }
+});
+
+const isPayed = computed(() => {
+  return props.order.c_date_pay ? props.order.c_date_pay : "Не оплачен";
+});
+</script>
 
 <style scoped lang="scss">
 .order-header__info {

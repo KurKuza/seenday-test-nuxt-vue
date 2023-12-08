@@ -1,11 +1,3 @@
-<script setup>
-import { Toast } from "~/ui/toasts";
-
-import Header from "@/components/header";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
-</script>
-
 <template>
   <div id="app">
     <div class="layout">
@@ -23,6 +15,14 @@ import Footer from "@/components/footer";
     </div>
   </div>
 </template>
+
+<script setup>
+import { Toast } from "~/ui/toasts";
+
+import Header from "@/components/header";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
+</script>
 
 <style lang="scss">
 @import "assets/styles/components/layout";

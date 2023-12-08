@@ -1,3 +1,12 @@
+<template>
+  <div class="panel">
+    <div class="panel__content" :class="isLg ? 'panel__pc' : ''">
+      <DateRange />
+      <Search placeholder="Поиск заказа" @update:search-query="getQuery" />
+    </div>
+  </div>
+</template>
+
 <script setup lang="ts">
 import { DateRange } from "~/ui/date-range";
 
@@ -12,15 +21,6 @@ const getQuery = async (query: string) => {
   await storeCards.searchByIdCard(query);
 };
 </script>
-
-<template>
-  <div class="panel">
-    <div class="panel__content" :class="isLg ? 'panel__pc' : ''">
-      <DateRange />
-      <Search placeholder="Поиск заказа" @update:search-query="getQuery" />
-    </div>
-  </div>
-</template>
 
 <style scoped lang="scss">
 .panel {

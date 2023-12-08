@@ -1,9 +1,3 @@
-<script setup>
-import { useBreakpointMatcher } from "../../composables/useBreakpointMatcher";
-
-const isLg = useBreakpointMatcher("lg");
-</script>
-
 <template>
   <main :class="isLg ? 'main' : 'main__table'" data-fixed="fixed">
     <div>
@@ -14,6 +8,12 @@ const isLg = useBreakpointMatcher("lg");
     </div>
   </main>
 </template>
+
+<script setup>
+import { useBreakpointMatcher } from "../../composables/useBreakpointMatcher";
+
+const isLg = useBreakpointMatcher("lg");
+</script>
 
 <style lang="scss">
 @import "~/assets/styles/components/main/main.scss";

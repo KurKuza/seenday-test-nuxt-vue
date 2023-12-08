@@ -1,11 +1,3 @@
-<script setup lang="ts">
-import { Modal } from "~/ui/modal";
-import { Button } from "~/ui/button";
-
-const props = defineProps<{ title: string }>();
-const emit = defineEmits<{ submit: []; close: [] }>();
-</script>
-
 <template>
   <Modal model-value position-title="center" size="small" @update:model-value="emit('close')">
     <template #title> Подтверждение действия </template>
@@ -24,3 +16,11 @@ const emit = defineEmits<{ submit: []; close: [] }>();
     </div>
   </Modal>
 </template>
+
+<script setup lang="ts">
+import { Modal } from "~/ui/modal";
+import { Button } from "~/ui/button";
+
+const props = defineProps<{ title: string }>();
+const emit = defineEmits<{ submit: []; close: [] }>();
+</script>

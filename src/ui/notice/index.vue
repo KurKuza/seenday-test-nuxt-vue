@@ -1,3 +1,9 @@
+<template>
+  <div class="notice" :data-color="props.color">
+    <slot />
+  </div>
+</template>
+
 <script setup lang="ts">
 const props = defineProps<{
   color?:
@@ -15,12 +21,6 @@ const props = defineProps<{
     | "tinkoff";
 }>();
 </script>
-
-<template>
-  <div class="notice" :data-color="props.color">
-    <slot />
-  </div>
-</template>
 
 <style>
 @import "~/assets/styles/components/notice/_notice.scss";

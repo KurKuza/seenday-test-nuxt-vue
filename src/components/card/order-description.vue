@@ -1,14 +1,3 @@
-<script setup lang="ts">
-import type { OrderType } from "./types";
-
-const props = defineProps({
-  order: {
-    type: Object as PropType<OrderType>,
-    required: true
-  }
-});
-</script>
-
 <template>
   <div class="order-description block">
     <div class="order-details">
@@ -31,6 +20,17 @@ const props = defineProps({
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import type { OrderType } from "./types";
+
+const props = defineProps({
+  order: {
+    type: Object as PropType<OrderType>,
+    required: true
+  }
+});
+</script>
 
 <style scoped lang="scss">
 .order-description {

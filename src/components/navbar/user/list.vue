@@ -1,3 +1,9 @@
+<template>
+  <div class="navbar-user-list">
+    <NavItem v-for="item of list" :key="item.id" :item="item" :is-gap="false" />
+  </div>
+</template>
+
 <script setup>
 import NavItem from "@/components/nav/item.vue";
 
@@ -28,9 +34,3 @@ const list = reactive([
   }
 ]);
 </script>
-
-<template>
-  <div class="navbar-user-list">
-    <NavItem v-for="item of list" :key="item.id" :item="item" :is-gap="false" />
-  </div>
-</template>

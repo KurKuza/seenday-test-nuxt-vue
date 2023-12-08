@@ -1,20 +1,3 @@
-<script lang="ts" setup>
-type Props = {
-  searchQuery?: string;
-  placeholder?: string;
-};
-
-const props = defineProps<Props>();
-
-const emit = defineEmits(["update:searchQuery", "update:type", "submit"]);
-
-const searchQuery = useVModel(props, "searchQuery", emit);
-
-const handleClearClicked = () => {
-  searchQuery.value = "";
-};
-</script>
-
 <template>
   <form class="search" @submit.prevent="emit('submit')">
     <div class="search__data">
@@ -31,6 +14,23 @@ const handleClearClicked = () => {
     </button>
   </form>
 </template>
+
+<script lang="ts" setup>
+type Props = {
+  searchQuery?: string;
+  placeholder?: string;
+};
+
+const props = defineProps<Props>();
+
+const emit = defineEmits(["update:searchQuery", "update:type", "submit"]);
+
+const searchQuery = useVModel(props, "searchQuery", emit);
+
+const handleClearClicked = () => {
+  searchQuery.value = "";
+};
+</script>
 
 <style lang="scss">
 @import "~/assets/styles/components/search.scss";

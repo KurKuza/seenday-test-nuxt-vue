@@ -1,3 +1,35 @@
+<template>
+  <DefaultLayout>
+    <main class="errors-page" :class="`errors-page_${errorCode}`">
+      <div class="errors-page__inner" :class="`errors-${errorCode}`">
+        <div class="errors-page__container" :class="`errors-${errorCode}__container`">
+          <div class="errors-page__number">
+            <div class="errors-page__number-text">
+              {{ errorCode }}
+              <img class="errors-page__number-img" src="/images/icons/error.svg" width="259" height="58" alt="" />
+            </div>
+          </div>
+
+          <div v-if="errorCode === 404" class="errors-404-images">
+            <div class="errors-404-images__item">
+              <img src="/images/errors/img-1.png" width="339" height="241" alt="" />
+            </div>
+            <div class="errors-404-images__item">
+              <img src="/images/errors/img-2.png" width="339" height="202" alt="" />
+            </div>
+            <div class="errors-404-images__item">
+              <img src="/images/errors/img-3.png" width="339" height="241" alt="" />
+            </div>
+          </div>
+        </div>
+        <div :class="`errors-${errorCode}__img`">
+          <img :src="`/lk/images/errors/${errorCode}.png`" :width="errorImg.width" :height="errorImg.height" />
+        </div>
+      </div>
+    </main>
+  </DefaultLayout>
+</template>
+
 <script setup>
 import DefaultLayout from "@/layouts/default.vue";
 
@@ -35,38 +67,6 @@ const errorImg = computed(() => {
   return errorMapSize[errorCode.value];
 });
 </script>
-
-<template>
-  <DefaultLayout>
-    <main class="errors-page" :class="`errors-page_${errorCode}`">
-      <div class="errors-page__inner" :class="`errors-${errorCode}`">
-        <div class="errors-page__container" :class="`errors-${errorCode}__container`">
-          <div class="errors-page__number">
-            <div class="errors-page__number-text">
-              {{ errorCode }}
-              <img class="errors-page__number-img" src="/images/icons/error.svg" width="259" height="58" alt="" />
-            </div>
-          </div>
-
-          <div v-if="errorCode === 404" class="errors-404-images">
-            <div class="errors-404-images__item">
-              <img src="/images/errors/img-1.png" width="339" height="241" alt="" />
-            </div>
-            <div class="errors-404-images__item">
-              <img src="/images/errors/img-2.png" width="339" height="202" alt="" />
-            </div>
-            <div class="errors-404-images__item">
-              <img src="/images/errors/img-3.png" width="339" height="241" alt="" />
-            </div>
-          </div>
-        </div>
-        <div :class="`errors-${errorCode}__img`">
-          <img :src="`/lk/images/errors/${errorCode}.png`" :width="errorImg.width" :height="errorImg.height" />
-        </div>
-      </div>
-    </main>
-  </DefaultLayout>
-</template>
 
 <style lang="scss">
 .container {

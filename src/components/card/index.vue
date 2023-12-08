@@ -1,3 +1,19 @@
+<template>
+  <StatusCard :status="getStatus()" class="order-card">
+    <div class="order-blocks">
+      <div class="order-content">
+        <OrderHeader :order="props.order" />
+        <OrderDescription :order="props.order" />
+      </div>
+      <div class="order-buttons">
+        <Button size="small" color="purple">Просмотр</Button>
+        <Button size="small" color="green">Оплачен</Button>
+        <Button size="small" color="red" @click="deleteConfirm">Закртыть</Button>
+      </div>
+    </div>
+  </StatusCard>
+</template>
+
 <script setup lang="ts">
 import { Button } from "~/ui/button";
 import { StatusCard } from "~/ui/status-card";
@@ -20,22 +36,6 @@ const getStatus = (): string => {
   return props.order.c_date_pay ? "green" : "";
 };
 </script>
-
-<template>
-  <StatusCard :status="getStatus()" class="order-card">
-    <div class="order-blocks">
-      <div class="order-content">
-        <OrderHeader :order="props.order" />
-        <OrderDescription :order="props.order" />
-      </div>
-      <div class="order-buttons">
-        <Button size="small" color="purple">Просмотр</Button>
-        <Button size="small" color="green">Оплачен</Button>
-        <Button size="small" color="red" @click="deleteConfirm">Закртыть</Button>
-      </div>
-    </div>
-  </StatusCard>
-</template>
 
 <style scoped lang="scss">
 .order-card {

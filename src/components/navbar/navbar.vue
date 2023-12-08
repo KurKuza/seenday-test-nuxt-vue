@@ -1,9 +1,3 @@
-<script setup>
-import Nav from "@/components/nav";
-
-import NavbarUser from "./user/user.vue";
-</script>
-
 <template>
   <div class="navbar">
     <div class="navbar__inner">
@@ -15,6 +9,12 @@ import NavbarUser from "./user/user.vue";
     </div>
   </div>
 </template>
+
+<script setup>
+import Nav from "@/components/nav";
+
+import NavbarUser from "./user/user.vue";
+</script>
 
 <style lang="scss">
 @import "assets/styles/components/navbar/navbar";
