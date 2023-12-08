@@ -16,14 +16,6 @@ const getAll = async () => {
   allItems.value = parsed?.response?.data.orders || [];
 };
 
-// const getOne = async item => {
-//   const request = await useAPIFetch(`https://dev-cabinet.seenday.com/e.scripts?page=pages:unload&event=get&unload_i
-// d=${item.id}`);
-//   const parsed = JSON.parse(request?.data?.value);
-
-//   activeItem.value = parsed?.response?.data[0] || [];
-// };
-
 onMounted(getAll);
 </script>
 
