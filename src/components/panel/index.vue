@@ -7,10 +7,8 @@ import { useOrderCards } from "../../widgets/order-cards/store-order-cards";
 
 const storeCards = useOrderCards();
 const isLg = useBreakpointMatcher("lg");
-console.log("🚀  isLessThenLg:", isLg.value);
 
 const getQuery = async (query: string) => {
-  console.log("🚀  query:", query);
   await storeCards.searchByIdCard(query);
 };
 </script>

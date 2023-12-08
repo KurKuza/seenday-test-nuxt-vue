@@ -29,9 +29,9 @@ onMounted(getAll);
       <OrderCards />
       <DeleteConfirm
         v-if="storeDeleteConfirm.isDelete"
-        :delete="console.log('hi')"
-        :close="() => deleteConfirm()"
-        title="he"
+        title="Delete"
+        @delete="() => storeDeleteConfirm.deleteConfirm()"
+        @close="() => storeDeleteConfirm.deleteConfirm()"
       />
     </template>
   </FixedLeftColumn>
