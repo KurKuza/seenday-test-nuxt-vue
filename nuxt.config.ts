@@ -65,15 +65,15 @@ export default defineNuxtConfig({
       ],
 
       link: [
-        { rel: "icon", type: "image/x-icon", href: "/lk/favicon.ico" },
-        { rel: "stylesheet", href: "/lk/fonts/open-sans-regular/stylesheet.css" },
-        { rel: "stylesheet", href: "/lk/fonts/open-sans-semibold/stylesheet.css" },
-        { rel: "stylesheet", href: "/lk/fonts/pt-sans-regular/stylesheet.css" },
-        { rel: "stylesheet", href: "/lk/fonts/fontawesome/stylesheet.css" }
+        { rel: "icon", type: "image/x-icon", href: "/manager/orders/favicon.ico" },
+        { rel: "stylesheet", href: "/manager/orders/fonts/open-sans-regular/stylesheet.css" },
+        { rel: "stylesheet", href: "/manager/orders/fonts/open-sans-semibold/stylesheet.css" },
+        { rel: "stylesheet", href: "/manager/orders/fonts/pt-sans-regular/stylesheet.css" },
+        { rel: "stylesheet", href: "/manager/orders/fonts/fontawesome/stylesheet.css" }
       ]
     },
-    baseURL: "/lk/",
-    cdnURL: "/lk/"
+    baseURL: "/manager/orders",
+    cdnURL: "/manager/orders"
   },
 
   css: ["~/assets/styles/main.scss"],
@@ -89,10 +89,10 @@ export default defineNuxtConfig({
     },
     server: {
       proxy: {
-        "/lk/method": {
+        "/manager/orders/method": {
           target: process.env.NUXT_PUBLIC_API_BASE,
           changeOrigin: true,
-          rewrite: path => path.replace(/^\/lk/, "")
+          rewrite: path => path.replace(/^\/manager\/orders/, "")
         }
       }
     }
