@@ -55,12 +55,7 @@
       }
     ],
     "vue/max-attributes-per-line": "off",
-    "vue/component-tags-order": [
-      "error",
-      {
-        "order": ["script", "template", "style"]
-      }
-    ],
+
     "vue/order-in-components": [
       "warn",
       {
